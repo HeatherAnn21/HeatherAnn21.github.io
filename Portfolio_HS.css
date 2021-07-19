@@ -27,7 +27,7 @@ p {
 p:hover {
     transform: scale(1.1); 
     transition: transform 1.5s; 
-    color: rgb(175, 85, 228)
+    /* color: rgb(175, 85, 228) */
 } 
 
 .center {
