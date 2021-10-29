@@ -2,32 +2,34 @@
 <html lang="en"> 
 	<head> 
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" />
 		<title>Portfolio</title> 
 		<link rel="stylesheet" href="./Portfolio_HS.css">  
 	</head> 
 	<body class="Background"> 
-        <!-- NAV --> 
+        <!-- NAVBAR --> 
         <div class="Navbar">
                     <a class="active" href="#Home">Home</a> 
+                    <a href="#Slideshow">Slideshow</a>
                     <a href="#About">About</a> 
-                    <a href="#github">GitHub</a> 
-                    <a href="#Contact">Contact</a> 
+                    <a href="#GitHub">GitHub</a> 
+                    <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
         </div>
         <br> 
         <br>
-        <!-- END NAV --> 
+        <!-- END NAVBAR --> 
 
-        <!-- Home Video--> 
+        <!-- Background Video--> 
         <div id="Home">
             <video controls autoplay muted loop id="Code_Video">
                 <source src="images/codevideo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                Your browser does not support this HTML5 video.
             </video>
         </div>
-        <!--/Home Video--> 
+        <!--/Background Video--> 
 
         <!--Video Quote--> 
-        <div class="Video_Quote">
+        <div class="Video_Text">
             <h1 class="white-text">Heather Sullivan's Portfolio</h1>
             <p class="center"><q>I think it's fair to say that personal computers have become the most empowering tool we've ever created. 
                 <br>They're tools of communication, they're tools of creativity, and they can be shaped by their user.</q>
@@ -35,6 +37,53 @@
             </p> 
         </div>
         <!--Video Quote--> 
+
+        <!-- Slideshow--> 
+        <div id="Slideshow">
+            <div id="Slideshow_Background"> 
+                <div id="Slideshow_Container">
+                    <!-- Slide 1/5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/portfolio_8.jpg" alt="Update Soon">
+                        <div class="text">I'm would love to assist you on your project!</div>
+                    </div>
+                    <!-- Slide 2/5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/portfolio_4.jpg" alt="HTML, CSS, and JS logos"> 
+                        <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!-- Slide 3/5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/portfolio_5.jpg" alt="Python logo">
+                        <div class="text">and have expirience with Python,</div>
+                    </div>
+                    <!-- Slide 4/5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/portfolio_6.jpg" alt="SQL Logo">
+                        <div class="text">as well as back end development such as SQL. </div>
+                    </div>
+                    <!-- Slide 5/5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/portfolio_7.jpg" alt="Computer Aesthetic"> 
+                        <div class="text">Contact me now!</div>
+                    </div>
+                    <!-- Previous & next buttons -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br> <!--Adds a space between the slideshow images&dots-->
+
+                <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                </div>
+            </div>
+        </div>
+        <!-- /Slideshow-->
 
         <!--ABOUT SECTION-->
         <div class="Row" id="About"> 
@@ -50,7 +99,7 @@
             </div> 
             <!--RIGHT COLUMN-->
             <div class="Column_1">
-                <img src="images/portfolio_1.jpeg" width="600px" alt="Focused Code with blurred background">
+                <img src="images/portfolio_1.jpg" width="600px" alt="Focused Code with blurred background">
             </div>
         </div> 
         <!--/END ABOUT SECTION--> 
@@ -74,34 +123,36 @@
         <!--/ END GITHUB SECTION-->
 
         <!--CONTACT FORM-->
-        <div class="Row" id="Contact">
-            <!--LEFT COLUMN-->
-            <div class="Column_1 Column_tall">
-                <img src="images/portfolio_3.jpg" width="600px" alt="Email Logo">
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                 <form action="https://formspree.io/f/xqkwdyzv" method="POST" class="form-container"> 
+                     <h1>Contact</h1>
+                     <label for="name"><b>Name</b></label>
+                       <input type="text" placeholder="Type your name here" name="name" required>
+                     <label for="phone"><b>Phone</b></label>
+                       <input type="text" placeholder="Type your phone number here" name="phone">
+                     <label for="email"><b>Email</b></label>		
+                       <input type="text" placeholder="Type your email address here" name="email" required>
+                     <label for="message"><b>Message</b></label>
+                       <input type="text" placeholder="Type your message here" name="message">
+          
+                     <button type="submit" class="btn">SUBMIT</button>
+                     <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                 </form>
             </div>
-            <!--RIGHT COLUMN-->
-            <div class="Column_2 Column_tall">
-                <h1>Contact</h1>
-                <form action="https://formspree.io/f/xqkwdyzv" method="POST"> 
-                    <label>Name:</label><br>
-                        <input type="text" placeholder="Please enter your name here.">
-                   <br><label>Email:</label><br>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here.">
-                    <br><label>Message:</label><br>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here.">
-                    <br><input type="submit" value="SUBMIT">
-                </form>
-            </div>
-        </div> 
+         </div>
         <!--/END CONTACT FORM-->
 
         <!--FOOTER SECTION-->
         <footer>
-            <p>
                 <p class="center"><a href="" target="_blank">&copy Heather Sullivan LLC</a></p>
-                <br>
-            </p>
         </footer> 
+
+        <!-- JAVASCRIPT--> 
+
+        <script src="./Portfolio_HS.js"></script> 
+
         <!--/END FOOTER SECTION--> 
 
 
